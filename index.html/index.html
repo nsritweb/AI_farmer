@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI FARMING - Smart Crop Advisory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #004d00 !important; /* Dark Green */
+        }
+
+        .nav-link {
+            font-weight: 500;
+        }
+
+        /* --- NEW HORIZONTAL FLOWCHART STYLES --- */
+        .flowchart-step-horizontal {
+            background-color: #e6ffe6; /* Light Green background for steps */
+            border: 1px solid #c3e6cb;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-width: 180px; /* Ensures steps don't get too narrow */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .flowchart-step-horizontal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .flowchart-icon-horizontal {
+            font-size: 2rem;
+            color: #28a745; /* Bootstrap Green */
+            margin-bottom: 5px;
+        }
+
+        .flowchart-arrow-horizontal {
+            font-size: 1.5rem;
+            color: #218838;
+            display: flex; /* Makes sure the arrow centers vertically */
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        /* Hide the scrollbar but allow scrolling on small devices */
+        .flowchart-container::-webkit-scrollbar {
+            display: none;
+        }
+        .flowchart-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* --- END NEW HORIZONTAL FLOWCHART STYLES --- */
+
+        /* Hero Section Styling (Existing) */
+        .hero-section {
+            background: url('famer1.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        .hero-section p {
+            font-size: 1.5rem;
+        }
+
+        /* Gallery Image Styling (Existing) */
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo Styling (Existing) */
+        .logo-img {
+            height: 40px; /* Adjust height as needed */
+            margin-right: 10px;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="farmerlogo.jpg" alt="Indian Farmer Logo" class="logo-img">
+                AI FARMING
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutus">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactus">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success ms-2" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-success ms-2" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <h1>Welcome to AI FARMING</h1>
+            <p class="lead">Harnessing the power of AI to drive smart, organic, and sustainable agriculture.</p>
+        </div>
+    </section>
+
+    <section id="flowcharts" class="container my-5">
+        <h2 class="text-center mb-5 text-success">Our Smart Advisory Workflow</h2>
+        
+        <h4 class="text-center text-primary mb-3">1. Crop Suggestion & Task Management</h4>
+        <div class="row mb-5 justify-content-center">
+            <div class="d-flex flex-row flex-nowrap overflow-auto p-3 border rounded shadow-sm bg-white flowchart-container">
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-hand-pointer flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Farmer enters details (Soil, Land, Season)</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-cloud-sun-rain flowchart-icon-horizontal"></i>
+                    <p class="mb-0">System processes input + Fetches Weather Data</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-seedling flowchart-icon-horizontal"></i>
+                    <p class="mb-0">ML Model Suggests Best Crops</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-tasks flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Generates Weekly Tasks (Irrigation, Fertilizer)</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-bell flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Real-time Alerts (Weather, Pests)</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-chart-line flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Shows Market Price & Selling Points</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-mobile-alt flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Farmer Receives Advice (App/SMS/WhatsApp)</p>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="text-center text-primary mb-3">2. Organic Farming Guidance</h4>
+        <div class="row mb-5 justify-content-center">
+            <div class="d-flex flex-row flex-nowrap overflow-auto p-3 border rounded shadow-sm bg-white flowchart-container">
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-leaf flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Choose Crop</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-info-circle flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Show Crop Info</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-recycle flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Organic Farming Methods</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-video flowchart-icon-horizontal"></i>
+                    <p class="mb-0">AI Video/Voice Guidance (Pesticide-free growth)</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-tachometer-alt flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Weather + Market Prices Dashboard (Local Mandi Price)</p>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="text-center text-primary mb-3">3. AI-Powered Disease Detection</h4>
+        <div class="row mb-5 justify-content-center">
+            <div class="d-flex flex-row flex-nowrap overflow-auto p-3 border rounded shadow-sm bg-white flowchart-container">
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-upload flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Upload Crop Image</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-robot flowchart-icon-horizontal"></i>
+                    <p class="mb-0">AI Disease Detection</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-hand-holding-medical flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Suggest Organic Remedy</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+                
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-file-pdf flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Generate PDF Report</p>
+                </div>
+                <i class="fas fa-arrow-right flowchart-arrow-horizontal"></i>
+
+                <div class="flowchart-step-horizontal text-center flex-shrink-0 mx-2">
+                    <i class="fas fa-question-circle flowchart-icon-horizontal"></i>
+                    <p class="mb-0">Q&A and Solution in PDF</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="gallery" class="container my-5">
+        <h2 class="text-center mb-5 text-success">Farming Gallery</h2>
+        <div class="row gallery">
+            <div class="col-md-4 col-sm-6"><img src="famer1.jpg" alt="Lush green fields at sunset"></div>
+            <div class="col-md-4 col-sm-6"><img src="farmer2.jpg" alt="Barn in a colorful field"></div>
+            <div class="col-md-4 col-sm-6"><img src="farmer3.jpg" alt="Traditional ploughing with oxen"></div>
+            <div class="col-md-4 col-sm-6"><img src="farmer4.jpg" alt="Farmer tilling wet land"></div>
+            <div class="col-md-4 col-sm-6"><img src="farmer5.jpg" alt="Tractor spraying crops"></div>
+        </div>
+    </section>
+
+    <section id="aboutus" class="container my-5 p-4 bg-white rounded shadow">
+        <h2 class="text-center mb-4 text-success">About AI FARMING & Indian Agriculture</h2>
+        <p class="lead text-center">Our mission is to empower farmers with data-driven insights to achieve sustainable and profitable harvests.</p>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4 class="text-primary">The Importance of Smart Farming</h4>
+                <p>Indian agriculture, the backbone of the economy, faces challenges like climate change, water scarcity, and pest attacks. AI Farming addresses these by leveraging Machine Learning (ML) and weather data to provide precise, actionable advice.</p>
+                <p>Precision agriculture helps in the efficient use of resources like water and fertilizer, significantly reducing operational costs and environmental impact.</p>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-primary">Focus on Organic and Sustainable Methods</h4>
+                <p>We believe in the power of organic farming. Our advisory system guides farmers through pesticide-free crop management, suggesting natural remedies and sustainable practices. The AI video/voice guidance feature is designed to break language barriers and provide easy-to-understand instructions.</p>
+                <p>By connecting farmers to real-time market prices, we ensure they get the best value for their yield, completing the cycle from seed to sale.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactus" class="bg-dark text-white p-5">
+        <div class="container">
+            <h2 class="text-center mb-4 text-success">Contact Us</h2>
+            <div class="text-center">
+                <p>For any queries or support, please reach out to us:</p>
+                <p class="lead"><i class="fas fa-envelope me-2"></i> Email: <a href="mailto:NSRITWEB24@GMAIL.COM" class="text-white">NSRITWEB24@GMAIL.COM</a></p>
+                <p><i class="fas fa-phone me-2"></i> Phone: +91-XXX-XXXX-XXX</p>
+                <p class="mt-3">NSRITWEB24 Team - Empowering the next generation of farmers.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-light text-center py-3">
+        <p class="mb-0">&copy; 2024 AI FARMING. All rights reserved.</p>
+    </footer>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="loginModalLabel">Login to AI FARMING</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <p class="mb-0">New user? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="registerModalLabel">Register for AI FARMING</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="registerName" placeholder="Enter your full name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Create a password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirm password">
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
