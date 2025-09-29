@@ -23,7 +23,30 @@
             font-weight: 500;
         }
 
-        /* --- NEW HORIZONTAL FLOWCHART STYLES --- */
+        /* Logo Styling */
+        .logo-img {
+            height: 40px; /* Adjust height as needed */
+            margin-right: 10px;
+            display: inline;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background: url('famer1.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        .hero-section p {
+            font-size: 1.5rem;
+        }
+
+        /* --- HORIZONTAL FLOWCHART STYLES --- */
         .flowchart-step-horizontal {
             background-color: #e6ffe6; /* Light Green background for steps */
             border: 1px solid #c3e6cb;
@@ -64,26 +87,9 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
+        /* --- END HORIZONTAL FLOWCHART STYLES --- */
 
-        /* --- END NEW HORIZONTAL FLOWCHART STYLES --- */
-
-        /* Hero Section Styling (Existing) */
-        .hero-section {
-            background: url('famer1.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 100px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 40px;
-        }
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-        }
-        .hero-section p {
-            font-size: 1.5rem;
-        }
-
-        /* Gallery Image Styling (Existing) */
+        /* Gallery Image Styling */
         .gallery img {
             width: 100%;
             height: 250px;
@@ -91,13 +97,6 @@
             border-radius: 8px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Logo Styling (Existing) */
-        .logo-img {
-            height: 40px; /* Adjust height as needed */
-            margin-right: 10px;
-            display: inline;
         }
     </style>
 </head>
@@ -113,26 +112,26 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                <ul class="navbar-nav ms-auto" id="main-nav-links">
+                    <li class="nav-item nav-visible">
                         <a class="nav-link" href="#home">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-visible">
                         <a class="nav-link" href="#gallery">Gallery</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-visible">
                         <a class="nav-link" href="#aboutus">About Us</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-visible">
                         <a class="nav-link" href="#contactus">Contact Us</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-visible" id="login-link">
                         <a class="btn btn-outline-success ms-2" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item nav-visible" id="register-link">
                         <a class="btn btn-success ms-2" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
                     </li>
-                </ul>
+                    </ul>
             </div>
         </div>
     </nav>
@@ -144,6 +143,49 @@
         </div>
     </section>
 
+    <section id="dashboard" class="container my-5" style="display: none;">
+        <h2 class="text-center mb-5 text-success">Welcome, Farmer! 👋 Your Smart Agriculture Dashboard</h2>
+        <p class="lead text-center">Select an option to begin leveraging AI for your farm management.</p>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 shadow-sm text-center border-primary">
+                    <div class="card-body">
+                        <i class="fas fa-seedling fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">1. Crop Suggestion & Task Management</h5>
+                        <p class="card-text">Input soil and weather data to get the best crop recommendations and weekly task schedules.</p>
+                        <a href="#" class="btn btn-primary mt-2" onclick="loadFeature('crop_suggestion')">Start Management</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm text-center border-success">
+                    <div class="card-body">
+                        <i class="fas fa-leaf fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">2. Organic Farming Guidance</h5>
+                        <p class="card-text">Access organic methods, pesticide-free advice, and AI video/voice guidance for your crops.</p>
+                        <a href="#" class="btn btn-success mt-2" onclick="loadFeature('organic_guidance')">Get Guidance</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm text-center border-warning">
+                    <div class="card-body">
+                        <i class="fas fa-robot fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">3. AI-Powered Disease Detection</h5>
+                        <p class="card-text">Upload an image of an infected crop to get instant diagnosis and organic remedy recommendations.</p>
+                        <a href="#" class="btn btn-warning mt-2 text-white" onclick="loadFeature('disease_detection')">Detect Disease</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="feature-content" class="mt-5 p-4 bg-white rounded shadow" style="display: none;">
+            </div>
+        
+    </section>
     <section id="flowcharts" class="container my-5">
         <h2 class="text-center mb-5 text-success">Our Smart Advisory Workflow</h2>
         
@@ -325,7 +367,7 @@
                             <label for="loginPassword" class="form-label">Password</label>
                             <input type="password" class="form-control" id="loginPassword" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-success w-100">Login</button>
+                        <button type="submit" class="btn btn-success w-100" onclick="handleLogin(event)">Login</button>
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
@@ -368,6 +410,134 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const dashboard = document.getElementById('dashboard');
+        const homeSection = document.getElementById('home');
+        const flowcharts = document.getElementById('flowcharts');
+        const gallery = document.getElementById('gallery');
+        const aboutus = document.getElementById('aboutus');
+        const contactus = document.getElementById('contactus');
+        const navLinksContainer = document.getElementById('main-nav-links');
+
+        // Function to simulate a successful login and show dashboard
+        function handleLogin(event) {
+            event.preventDefault(); // Prevents form submission
+            
+            // 1. Close the modal
+            var loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            if (loginModal) {
+                loginModal.hide();
+            }
+
+            // 2. Hide all main landing sections
+            homeSection.style.display = 'none';
+            flowcharts.style.display = 'none';
+            gallery.style.display = 'none';
+            aboutus.style.display = 'none';
+            contactus.style.display = 'none';
+
+            // 3. Show the dashboard
+            dashboard.style.display = 'block';
+
+            // 4. Update navbar links (Hide Login/Register, Show Logout)
+            document.getElementById('login-link').style.display = 'none';
+            document.getElementById('register-link').style.display = 'none';
+
+            // Remove existing static links (Home, Gallery, etc.) to keep the dashboard clean
+            document.querySelectorAll('.nav-visible').forEach(item => {
+                 item.style.display = 'none';
+            });
+
+            // Add back a simple Home link that goes to the dashboard and a Logout button
+            navLinksContainer.innerHTML = `
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showDashboard()">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-danger ms-2" onclick="logout()">Logout</button>
+                </li>
+            `;
+             // Scroll to the top of the dashboard
+             window.scrollTo(0, 0); 
+        }
+
+        // Function to log out and show the main page again
+        function logout() {
+            // 1. Hide the dashboard
+            dashboard.style.display = 'none';
+
+            // 2. Show all main landing sections
+            homeSection.style.display = 'block';
+            flowcharts.style.display = 'block';
+            gallery.style.display = 'block';
+            aboutus.style.display = 'block';
+            contactus.style.display = 'block';
+
+            // 3. Reset Navbar to original state
+            window.location.reload(); 
+        }
+
+        // Function to show the dashboard and reset feature content
+        function showDashboard() {
+             // Hide all sub-feature content
+            document.getElementById('feature-content').style.display = 'none';
+             // Scroll to the top of the dashboard
+             window.scrollTo(0, 0); 
+        }
+
+        // Placeholder function for clicking a feature (we will build the content for these next!)
+        function loadFeature(featureId) {
+            const featureContent = document.getElementById('feature-content');
+            featureContent.style.display = 'block';
+
+            let title = '';
+            let content = '';
+            
+            if (featureId === 'crop_suggestion') {
+                title = '🌱 Smart Crop Suggestion & Task Management';
+                content = `
+                    <p class="lead text-primary">This is where the magic happens! We will build a form that collects data (Soil Type, Season, Location) and provides ML-driven recommendations.</p>
+                    <h5>Current Tasks:</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Irrigate Field 1 (Tomorrow, 7:00 AM) <i class="fas fa-check-circle text-success ms-2"></i></li>
+                        <li class="list-group-item">Apply Organic Fertilizer (Field 3) <i class="fas fa-clock text-warning ms-2"></i></li>
+                        <li class="list-group-item">Check for Early Pest Signs <i class="fas fa-exclamation-triangle text-danger ms-2"></i></li>
+                    </ul>
+                    <button class="btn btn-outline-primary mt-3">Go to Crop Input Form (Coming Next)</button>
+                `;
+            } else if (featureId === 'organic_guidance') {
+                title = '🌿 Organic Farming Guidance';
+                content = `
+                    <p class="lead text-success">Learn the best pesticide-free methods for your current crop!</p>
+                    <div class="d-flex justify-content-center">
+                        <div class="p-3 border rounded bg-light me-3 text-center">
+                            <i class="fas fa-video fa-2x text-danger mb-2"></i>
+                            <p class="mb-0">AI Video Guidance (Hinglish)</p>
+                        </div>
+                        <div class="p-3 border rounded bg-light text-center">
+                            <i class="fas fa-hands-helping fa-2x text-info mb-2"></i>
+                            <p class="mb-0">Community Q&A Forum</p>
+                        </div>
+                    </div>
+                `;
+            } else if (featureId === 'disease_detection') {
+                title = '🤖 AI-Powered Disease Detection';
+                content = `
+                    <p class="lead text-warning">Upload an image to get instant diagnosis and treatment.</p>
+                    <form>
+                        <label for="cropImage" class="form-label">Upload Image of Affected Leaf/Plant:</label>
+                        <input type="file" class="form-control mb-3" id="cropImage" accept="image/*">
+                        <button type="submit" class="btn btn-warning text-white">Analyze Image</button>
+                    </form>
+                `;
+            }
+
+            featureContent.innerHTML = `<h4 class="text-center">${title}</h4><hr>${content}`;
+             // Scroll down to the feature content
+             featureContent.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
